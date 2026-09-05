@@ -1,0 +1,19 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #173332;
+    --primary: #173332;
+    --primary-foreground: #ffffff;
+    --border: #e5e5e5;
+  }
+
+  body {
+    background-color: #F4F0E8;
+    color: #173332;
+    font-family: 'DM Sans', sans-serif;
+  }
+}
