@@ -1,50 +1,44 @@
-import React, { useRef } from 'react';
-import { ArrowUp } from 'lucide-react';
-import { gsap } from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useRef } from "react";
+import { ArrowUp } from "lucide-react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Footer({ onQuoteClick }) {
   const footerRef = useRef(null);
 
-  useGSAP(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
+  useGSAP(
+    () => {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (prefersReducedMotion) return;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: footerRef.current,
-        start: 'top 85%',
-        once: true,
-      },
-      defaults: { ease: 'power3.out' },
-    });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top 85%",
+          once: true,
+        },
+        defaults: { ease: "power3.out" },
+      });
 
-    tl.fromTo(
-      '.footer-info-item',
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.9, stagger: 0.1 }
-    )
-      .fromTo(
-        '.footer-giant-line',
-        { opacity: 0, y: 45 },
-        { opacity: 1, y: 0, duration: 1.2, stagger: 0.12 },
-        '-=0.6'
-      )
-      .fromTo(
-        '.footer-legal-bar',
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.8 },
-        '-=0.7'
-      );
-  }, { scope: footerRef });
+      tl.fromTo(".footer-info-item", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.9, stagger: 0.1 })
+        .fromTo(
+          ".footer-giant-line",
+          { opacity: 0, y: 45 },
+          { opacity: 1, y: 0, duration: 1.2, stagger: 0.12 },
+          "-=0.6",
+        )
+        .fromTo(".footer-legal-bar", { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.8 }, "-=0.7");
+    },
+    { scope: footerRef },
+  );
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -73,7 +67,7 @@ export default function Footer({ onQuoteClick }) {
           {/* Contact */}
           <div className="footer-info-item lg:col-span-4 space-y-1 text-xs sm:text-sm text-[#F4F0E8]/70 will-change-transform">
             <p>
-              Tel:{' '}
+              Tel:{" "}
               <a
                 href="tel:+8801960481983"
                 className="text-[#F4F0E8] hover:text-[#B49A67] transition-colors duration-200"
@@ -126,7 +120,7 @@ export default function Footer({ onQuoteClick }) {
             <div className="footer-giant-line text-[#F4F0E8] text-[15.5vw] sm:text-[16.5vw] md:text-[17vw] lg:text-[19.5vw] leading-[0.85] will-change-transform">
               HEAVEN
             </div>
-            <div className="footer-giant-line text-[#F4F0E8]/35 text-[8.2vw] sm:text-[9.2vw] md:text-[9.8vw] lg:text-[10.5vw] xl:text-[11.5vw] tracking-[-0.065em] sm:tracking-[-0.07em] md:tracking-[-0.045em] leading-[0.85] whitespace-nowrap will-change-transform">
+            <div className="footer-giant-line text-[#F4F0E8]/35 text-[8.2vw] sm:text-[9.2vw] md:text-[9.8vw] lg:text-[10.5vw] xl:text-[11vw] sm:tracking-[-0.07em] md:tracking-[-0.045em] leading-[0.85] will-change-transform">
               FURNITURE MART
             </div>
           </div>
@@ -137,11 +131,17 @@ export default function Footer({ onQuoteClick }) {
           <div className="space-y-1.5 max-w-xl">
             <p>© 2026 Heaven Furniture Mart — Agrabad Access Road, Chattogram, Bangladesh</p>
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-[#F4F0E8]/40">
-              <a href="#" className="hover:text-[#F4F0E8] transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-[#F4F0E8] transition-colors">
+                Privacy Policy
+              </a>
               <span>—</span>
-              <a href="#" className="hover:text-[#F4F0E8] transition-colors">Cookie Policy</a>
+              <a href="#" className="hover:text-[#F4F0E8] transition-colors">
+                Cookie Policy
+              </a>
               <span>—</span>
-              <a href="#" className="hover:text-[#F4F0E8] transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-[#F4F0E8] transition-colors">
+                Terms of Service
+              </a>
             </div>
           </div>
 
